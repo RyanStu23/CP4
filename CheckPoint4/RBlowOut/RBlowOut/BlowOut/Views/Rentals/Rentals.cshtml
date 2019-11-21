@@ -1,0 +1,45 @@
+﻿@model IEnumerable<BlowOut.Models.Instrument>
+
+@{
+    ViewBag.Title = "Rentals";
+}
+
+<h2>Rentals</h2>
+<h3>Click images for more information!</h3>
+<br />
+
+    <div class="row text-center">
+        <div class="col-md-6">
+            <h3>Trumpet Rentals</h3>
+            <a href="@Url.Action("Trumpet", "Rentals")">
+                <img src="~/Content/Images/Trumpet.jpeg" />
+            </a>
+        
+            <h3>Trombone Rentals</h3>
+            <a href="@Url.Action("Trombone", "Rentals")">
+                <img src="~/Content/Images/Trombone.jpeg" />
+            </a>
+
+            <h3>Tuba Rentals</h3>
+            <a href="@Url.Action("Tuba", "Rentals")">
+                <img src="~/Content/Images/Tuba.jpeg" />
+            </a>
+        </div>
+    
+        <div class="col-md-4">
+            <h3>Flute Rentals</h3>
+            <a href="@Url.Action("Flute", "Rentals")">
+                <img src="~/Content/Images/Flute.png" />
+            </a>
+
+            <h3>Clarinet Rentals</h3>
+            <a href="@Url.Action("Clarinet", "Rentals")">
+                <img src="~/Content/Images/Clarinet.jpeg" />
+            </a>
+
+            <h3>Saxophone Rentals</h3>
+            <a href="@Url.Action("Saxophone", "Rentals")">
+                <img src="~/Content/Images/Saxophone.jpeg" />
+            </a>
+        </div>
+    </div>

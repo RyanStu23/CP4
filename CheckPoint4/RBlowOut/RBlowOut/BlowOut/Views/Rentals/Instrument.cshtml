@@ -1,0 +1,21 @@
+﻿@model IEnumerable<BlowOut.Models.Instrument>
+@{
+    ViewBag.Title = "Instrument";
+}
+
+<h1>Instrument</h1>
+
+<h2>
+    @ViewBag.Instrument
+</h2>
+
+
+<br /> <br />
+<p>Would you like to rent a <a href="@Url.Action("New", "Rentals", new {id = ViewBag.ID })">
+    new </a> or a <a href="@Url.Action("Used", "Rentals")">used</a> @ViewBag.Instrument?</p>
+
+
+
+
+
+
