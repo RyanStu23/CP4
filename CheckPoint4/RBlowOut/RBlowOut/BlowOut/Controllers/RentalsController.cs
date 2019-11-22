@@ -101,7 +101,7 @@ namespace BlowOut.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult New([Bind(Include = "clientID, firstName, lastName, address, city, state, zip, phone")] Client client, int ID)
+        public ActionResult New([Bind(Include = "clientID, firstName, lastName, address, city, state, zip, phone, email")] Client client, int ID)
         {
             if (ModelState.IsValid)
             {
@@ -129,10 +129,16 @@ namespace BlowOut.Controllers
         }
 
 
+        public ActionResult Used(int ID)
+        {
+            bottle = "To rent a new " + Instrument + " will cost ";
+            ViewBag.New = bottle + Usedd;
+            return View("UsedClientInstrument");
+        }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Used([Bind(Include = "clientID, firstName, lastName, address, city, state, zip, phone")] Client client, int ID)
+        public ActionResult Used([Bind(Include = "clientID, firstName, lastName, address, city, state, zip, phone, email")] Client client, int ID)
         {
             if (ModelState.IsValid)
             {
@@ -156,6 +162,11 @@ namespace BlowOut.Controllers
 
             }
 
+            return View();
+        }
+
+        public ActionResult Summary(ClientInstrument clientInstrument)
+        {
             return View();
         }
     }

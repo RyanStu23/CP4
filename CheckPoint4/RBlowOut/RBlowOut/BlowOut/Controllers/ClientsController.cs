@@ -47,7 +47,7 @@ namespace BlowOut.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "clientID,firstName,lastName,address,city,state,zip,phone")] Client client)
+        public ActionResult Create([Bind(Include = "clientID,firstName,lastName,address,city,state,zip,phone,email")] Client client)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +79,7 @@ namespace BlowOut.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "clientID,firstName,lastName,address,city,state,zip,phone")] Client client)
+        public ActionResult Edit([Bind(Include = "clientID,firstName,lastName,address,city,state,zip,phone,email")] Client client)
         {
             if (ModelState.IsValid)
             {

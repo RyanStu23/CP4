@@ -53,5 +53,10 @@ namespace BlowOut.Models
         [StringLength(30)]
         public String phone { get; set; }
 
+        [Required(ErrorMessage = "The client email is required")]
+        [DisplayName("Client Email")]
+        [StringLength(30)]
+        public String email { get; set; }
+
     }
 }

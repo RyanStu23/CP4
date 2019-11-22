@@ -1,0 +1,26 @@
+﻿@model BlowOut.Models.ClientInstrument
+
+@{
+    ViewBag.Title = "Summary";
+}
+
+
+<h2>Summary</h2>
+<p>Thank you @Model.client.firstName for the order placed with us!</p>
+<br />
+<p>Order Info:</p>
+<ul>
+    <li>
+        OrderID: @Model.client.clientID
+    </li>
+    <li>
+        Instrument: @Model.instrument.instrumentDesc
+    </li>
+    <li>
+        Instrument Type: @Model.instrument.instrumentType
+    </li>
+    <li>
+        Monthly Price: @Model.instrument.price
+    </li>
+</ul>
+
