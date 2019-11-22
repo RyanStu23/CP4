@@ -1,4 +1,8 @@
-﻿using System;
+﻿//Authors: Elijah Allen, Jenna Boyce, Connor Merkley, Ryan Stuart
+//Description: Checkpoint 4 - BlowOut
+
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;

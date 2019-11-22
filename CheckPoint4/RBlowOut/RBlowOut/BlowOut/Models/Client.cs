@@ -50,10 +50,7 @@ namespace BlowOut.Models
 
         [Required(ErrorMessage = "The client phone number is required")]
         [DisplayName("Client Phone Number")]
-<<<<<<< HEAD
-=======
         [StringLength(30)]
->>>>>>> a19b5e53ebe8825cf3822cfdd7ddb9dc8e450eba
         [RegularExpression(@"^\(\d{3}\)\s?\d{3}[-]\d{4}$", ErrorMessage = "Please format phone number (XXX)XXX-XXXX")]
         public String phone { get; set; }
 

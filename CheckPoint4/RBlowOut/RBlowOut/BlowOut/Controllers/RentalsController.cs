@@ -124,8 +124,10 @@ namespace BlowOut.Controllers
                 return RedirectToAction("Summary", new { clientID = client.clientID, instrumentID = instrument.instrumentID });
 
             }
-
-            return View();
+            else
+            {
+                return View("NewClientInstrument",client);
+            }
         }
 
 
@@ -161,8 +163,11 @@ namespace BlowOut.Controllers
                 return RedirectToAction("Summary", new { clientID = client.clientID, instrumentID = instrument.instrumentID });
 
             }
+            else
+            {
+                return View("UsedClientInstrument", client);
+            }
 
-            return View();
         }
 
         public ActionResult Summary(int clientID, int instrumentID)
