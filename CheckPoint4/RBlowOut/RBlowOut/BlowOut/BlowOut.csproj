@@ -166,12 +166,14 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\61ApajBhHDL._SL1000_.jpg" />
     <Content Include="Content\Images\Clarinet.jpeg" />
     <Content Include="Content\Images\connor.jpg" />
     <Content Include="Content\Images\eli.jpg" />
     <Content Include="Content\Images\Flute.png" />
     <Content Include="Content\Images\Instrument.jpeg" />
     <Content Include="Content\Images\instruments.jpg" />
+    <Content Include="Content\Images\jack-jack-attack.jpg" />
     <Content Include="Content\Images\jenna.jpg" />
     <Content Include="Content\Images\ryan.jpg" />
     <Content Include="Content\Images\Saxophone.jpeg" />
