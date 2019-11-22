@@ -50,12 +50,13 @@ namespace BlowOut.Models
 
         [Required(ErrorMessage = "The client phone number is required")]
         [DisplayName("Client Phone Number")]
-        [StringLength(30)]
+        [RegularExpression(@"^\(\d{3}\)\s?\d{3}[-]\d{4}$", ErrorMessage = "Please format phone number (XXX)XXX-XXXX")]
         public String phone { get; set; }
 
         [Required(ErrorMessage = "The client email is required")]
         [DisplayName("Client Email")]
         [StringLength(30)]
+        [EmailAddress]
         public String email { get; set; }
 
     }
