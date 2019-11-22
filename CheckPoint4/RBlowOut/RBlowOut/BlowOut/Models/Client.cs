@@ -45,7 +45,7 @@ namespace BlowOut.Models
 
         [Required(ErrorMessage = "The zip is required")]
         [DisplayName("Zip Code")]
-        [StringLength(30)]
+        [StringLength(5, MinimumLength = 5)]
         public String zip { get; set; }
 
         [Required(ErrorMessage = "The client phone number is required")]

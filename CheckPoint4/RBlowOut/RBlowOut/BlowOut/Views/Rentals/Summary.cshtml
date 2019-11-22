@@ -3,24 +3,57 @@
 @{
     ViewBag.Title = "Summary";
 }
+<p>
+    Thank you @ViewBag.Client.firstName for ordering with us!
+    <br />
+    Order Information:
+    <ul>
+        <li>
+            Order ID: @ViewBag.Client.clientID
+        </li>
+        <li>
+            Instrument:  @ViewBag.Instrument.instrumentDesc
+        </li>
+        <li>
+            New/Used: @ViewBag.Instrument.instrumentType
+        </li>
+        <li>
+            Monthly Price: $@ViewBag.Instrument.price
+        </li>
+        <li>
+            New/Used: @ViewBag.Instrument.instrumentType
+        </li>
+        <li>
+            Total Amount after 18 Months: $@ViewBag.TotalPrice
+        </li>
+    </ul>
+
+</p>
+
+@if (ViewBag.Instrument.instrumentDesc == "Trumpet")
+{
+    <img src='~/Content/Images/Trumpet.jpeg' alt='This should be a picture dang it!' />
+}
+else if (ViewBag.Instrument.instrumentDesc == "Trombone")
+{
+    <img src="~/Content/Images/Trombone.jpeg" />
+}
+else if (ViewBag.Instrument.instrumentDesc == "Trumpet")
+{
+    <img src="~/Content/Images/Tuba.jpeg" />
+}
+else if (ViewBag.Instrument.instrumentDesc == "Flute")
+{
+    <img src="~/Content/Images/Flute.png" />
+}
+else if (ViewBag.Instrument.instrumentDesc == "Clarinet")
+{
+    <img src="~/Content/Images/Clarinet.jpeg" />
+}
+else
+{
+    <img src="~/Content/Images/Saxophone.jpeg" />
+}
 
 
-<h2>Summary</h2>
-<p>Thank you @Model.client.firstName for the order placed with us!</p>
-<br />
-<p>Order Info:</p>
-<ul>
-    <li>
-        OrderID: @Model.client.clientID
-    </li>
-    <li>
-        Instrument: @Model.instrument.instrumentDesc
-    </li>
-    <li>
-        Instrument Type: @Model.instrument.instrumentType
-    </li>
-    <li>
-        Monthly Price: @Model.instrument.price
-    </li>
-</ul>
 

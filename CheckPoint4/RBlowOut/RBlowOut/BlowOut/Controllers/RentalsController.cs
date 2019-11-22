@@ -31,8 +31,8 @@ namespace BlowOut.Controllers
         public ActionResult Trumpet()
         {
             Instrument = "Trumpet";
-            Usedd = "$25";
-            Neww = "$55";
+            Usedd = "25";
+            Neww = "55";
             instID = 1;
             ViewBag.Used = Usedd;
             ViewBag.New = Neww;
@@ -43,8 +43,8 @@ namespace BlowOut.Controllers
         public ActionResult Trombone()
         {
             Instrument = "Trombone";
-            Usedd = "$35";
-            Neww = "$60";
+            Usedd = "35";
+            Neww = "60";
             instID = 3;
             ViewBag.Instrument = Instrument;
             ViewBag.ID = instID;
@@ -53,8 +53,8 @@ namespace BlowOut.Controllers
         public ActionResult Tuba()
         {
             Instrument = "Tuba";
-            Usedd = "$50";
-            Neww = "$70";
+            Usedd = "50";
+            Neww = "70";
             instID = 5;
             ViewBag.Instrument = Instrument;
             ViewBag.ID = instID;
@@ -63,8 +63,8 @@ namespace BlowOut.Controllers
         public ActionResult Flute()
         {
             Instrument = "Flute";
-            Usedd = "$25";
-            Neww = "$40";
+            Usedd = "25";
+            Neww = "40";
             instID = 7;
             ViewBag.Instrument = Instrument;
             ViewBag.ID = instID;
@@ -73,8 +73,8 @@ namespace BlowOut.Controllers
         public ActionResult Clarinet()
         {
             Instrument = "Clarinet";
-            Usedd = "$27";
-            Neww = "$35";
+            Usedd = "27";
+            Neww = "35";
             instID = 9;
             ViewBag.Instrument = Instrument;
             ViewBag.ID = instID;
@@ -83,8 +83,8 @@ namespace BlowOut.Controllers
         public ActionResult Saxophone()
         {
             Instrument = "Saxophone";
-            Usedd = "$30";
-            Neww = "$42";
+            Usedd = "30";
+            Neww = "42";
             instID = 11;
             ViewBag.Instrument = Instrument;
             ViewBag.ID = instID;
@@ -93,7 +93,7 @@ namespace BlowOut.Controllers
 
         public ActionResult New(int ID)
         {
-            bottle = "To rent a new " + Instrument + " will cost ";
+            bottle = "To rent a new " + Instrument + " will cost $";
             ViewBag.New = bottle + Neww;
             return View("NewClientInstrument");
         }
@@ -131,7 +131,7 @@ namespace BlowOut.Controllers
 
         public ActionResult Used(int ID)
         {
-            bottle = "To rent a new " + Instrument + " will cost ";
+            bottle = "To rent a new " + Instrument + " will cost $";
             ViewBag.New = bottle + Usedd;
             return View("UsedClientInstrument");
         }
@@ -165,8 +165,17 @@ namespace BlowOut.Controllers
             return View();
         }
 
-        public ActionResult Summary(ClientInstrument clientInstrument)
+        public ActionResult Summary(int clientID, int instrumentID)
         {
+            Client client = db.Clients.Find(clientID);
+            Instrument instrument = db.Instruments.Find(instrumentID);
+
+            int iPrice = Convert.ToInt32(instrument.price);
+
+            ViewBag.Client = client;
+            ViewBag.Instrument = instrument;
+            ViewBag.TotalPrice = iPrice * 18;
+
             return View();
         }
     }
