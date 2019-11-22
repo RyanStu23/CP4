@@ -45,7 +45,7 @@ namespace BlowOut.Controllers
             Instrument = "Trombone";
             Usedd = "$35";
             Neww = "$60";
-            instID = 2;
+            instID = 3;
             ViewBag.Instrument = Instrument;
             ViewBag.ID = instID;
             return View("Instrument");
@@ -55,7 +55,7 @@ namespace BlowOut.Controllers
             Instrument = "Tuba";
             Usedd = "$50";
             Neww = "$70";
-            instID = 3;
+            instID = 5;
             ViewBag.Instrument = Instrument;
             ViewBag.ID = instID;
             return View("Instrument");
@@ -65,7 +65,7 @@ namespace BlowOut.Controllers
             Instrument = "Flute";
             Usedd = "$25";
             Neww = "$40";
-            instID = 4;
+            instID = 7;
             ViewBag.Instrument = Instrument;
             ViewBag.ID = instID;
             return View("Instrument");
@@ -75,7 +75,7 @@ namespace BlowOut.Controllers
             Instrument = "Clarinet";
             Usedd = "$27";
             Neww = "$35";
-            instID = 5;
+            instID = 9;
             ViewBag.Instrument = Instrument;
             ViewBag.ID = instID;
             return View("Instrument");
@@ -85,7 +85,7 @@ namespace BlowOut.Controllers
             Instrument = "Saxophone";
             Usedd = "$30";
             Neww = "$42";
-            instID = 6;
+            instID = 11;
             ViewBag.Instrument = Instrument;
             ViewBag.ID = instID;
             return View("Instrument");
@@ -111,9 +111,13 @@ namespace BlowOut.Controllers
                 db.SaveChanges();
 
                 //lookup instrument
-                Instrument instrument = db.Instruments.Find(ID);
-                //Update instrument
+                Instrument instrument = new Models.Instrument();
+                instrument.instrumentDesc = Instrument;
+                instrument.instrumentType = "New";
+                instrument.price = Neww;
                 instrument.clientID = Convert.ToInt32(client.clientID);
+                db.Instruments.Add(instrument);
+
                 //Save Changes
                 db.SaveChanges();
 
@@ -123,16 +127,36 @@ namespace BlowOut.Controllers
 
             return View();
         }
-          
 
 
-        public ActionResult Used()
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Used([Bind(Include = "clientID, firstName, lastName, address, city, state, zip, phone")] Client client, int ID)
         {
-            bottle = "To rent a used " + Instrument + " will cost ";
-            ViewBag.Used = bottle + Usedd;
-            return View();
+            if (ModelState.IsValid)
+            {
+                client.clientID = lstClient.Count + 1;
 
-           
+                db.Clients.Add(client);
+                db.SaveChanges();
+
+                //lookup instrument
+                Instrument instrument = new Models.Instrument();
+                instrument.instrumentDesc = Instrument;
+                instrument.instrumentType = "Used";
+                instrument.price = Usedd;
+                instrument.clientID = Convert.ToInt32(client.clientID);
+                db.Instruments.Add(instrument);
+
+                //Save Changes
+                db.SaveChanges();
+
+                return RedirectToAction("Summary", new { clientID = client.clientID, instrumentID = instrument.instrumentID });
+
+            }
+
+            return View();
         }
     }
 }
